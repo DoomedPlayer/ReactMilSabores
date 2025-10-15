@@ -4,6 +4,9 @@ import HeroSection from '../components/HeroSection';
 import ProductCard from '../components/ProductCard';
 import Promotions from '../components/Promotion';
 import CommunitySection from '../components/ComunitySection';
+import Navbar from '../components/NavBar';
+import Footer from '../components/Footer';
+import '../stylesheet.css';
 
 // Simulación de datos
 const featuredProductsData = [
@@ -15,6 +18,8 @@ const featuredProductsData = [
 // Home recibe onNavigate desde App.jsx
 const Home = ({ onNavigate }) => { 
   return (
+    <>
+    <Navbar onNavigate={onNavigate} /> 
     <main>
       {/* Pasa onNavigate al Hero para el botón de catálogo */}
       <HeroSection onNavigate={onNavigate} /> 
@@ -38,6 +43,8 @@ const Home = ({ onNavigate }) => {
       {/* Pasa onNavigate a CommunitySection para el botón de blog */}
       <CommunitySection onNavigate={onNavigate} />
     </main>
+    <Footer />
+    </>
   );
 };
 
