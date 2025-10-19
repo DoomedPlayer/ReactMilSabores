@@ -1,0 +1,51 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    padding: 2rem;
+    min-height: 70vh; 
+    text-align: center; 
+}
+
+.form-container {
+    width: 100%;
+    max-width: 450px; 
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+    text-align: left; 
+}
+
+.form-container.active {
+    display: block;
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.switch-form a {
+    color: var(--color-acento-chocolate);
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

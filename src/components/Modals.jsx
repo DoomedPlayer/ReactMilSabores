@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const CartModal = ({ isCartModalOpen, setIsCartModalOpen, cart, cartTotal, totalItems }) => (
     <div className={`cart-modal ${isCartModalOpen ? 'show' : ''}`}>
@@ -27,9 +28,9 @@ export const CartModal = ({ isCartModalOpen, setIsCartModalOpen, cart, cartTotal
             <div className="cart-summary">
                 <h3>Total: <span id="cart-total">${cartTotal} CLP</span></h3>
             </div>
-            <button className="view-cart-button" onClick={() => window.location.href='carrito.html'}>
+            <Link to="/carrito" className="view-cart-button" onClick={() =>setIsCartModalOpen(false)}>
                 Finalizar Compra
-            </button>
+            </Link>
         </div>
     </div>
 );
