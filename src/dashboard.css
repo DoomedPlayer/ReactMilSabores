@@ -1,0 +1,205 @@
+:root {
+  --primary-color: #4CAF50; /* Un verde vibrante */
+  --secondary-color: #2196F3; /* Azul */
+  --accent-color: #FFC107; /* Amarillo */
+  --color-texto-principal: #5D4037;
+  --color-texto-secundario: #B0BEC5;
+  --light-bg: #ecf0f1; /* Fondo claro para tarjetas */
+    --color-acento-rosa: #FFC0CB;
+    --color-acento-chocolate: #8B4513;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #34495e; /* Un tono más oscuro que el fondo general */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .company-name {
+  color: var(--primary-color);
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav li {
+  margin-bottom: 10px;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  color: var(--text-color-dark);
+  text-decoration: none;
+  padding: 12px 15px;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.sidebar nav a svg {
+  margin-right: 10px;
+}
+
+.sidebar .logout-button {
+  margin-top: auto; /* Empuja el botón al final */
+  background-color: #e74c3c; /* Rojo para cerrar sesión */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar .logout-button:hover {
+  background-color: #c0392b;
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: var(--dark-bg);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.2em;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Metric Cards */
+.metric-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.metric-card {
+  background-color: var(--light-bg);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--text-color-light);
+  min-height: 120px; /* Asegura una altura mínima */
+}
+
+.metric-card .icon {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.metric-card .title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.metric-card .value {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--primary-color); /* Color primario para el valor */
+}
+
+.metric-card .description {
+  font-size: 0.9em;
+  color: var(--color-texto-principal);
+}
+
+/* Specific colors for metric cards */
+.metric-card.purchases { background-color: #2980b9; color: white; }
+.metric-card.purchases .value { color: white; }
+.metric-card.products { background-color: #27ae60; color: white; }
+.metric-card.products .value { color: white; }
+.metric-card.users { background-color: #f39c12; color: white; }
+.metric-card.users .value { color: white; }
+
+
+/* Dashboard Cards */
+.dashboard-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.dashboard-card {
+  background-color: var(--color-acento-rosa);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--text-color-light);
+  min-height: 180px; /* Asegura una altura mínima */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card .icon {
+  font-size: 3.5em;
+  color: var(--color-acento-chocolate);
+  margin-bottom: 15px;
+}
+
+.dashboard-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.3em;
+  color: var(--color-texto-principal);
+}
+
+.dashboard-card p {
+  font-size: 0.95em;
+  color: var(--color-texto-principal);
+  line-height: 1.5;
+}

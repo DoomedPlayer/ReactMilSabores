@@ -26,6 +26,7 @@ import { Link, NavLink } from 'react-router-dom';
           <ul className={`nav-links ${isMenuOpen ? 'show' : ''}`} id="nav-links">
             <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""} onClick={closeMobileMenu}>Inicio</NavLink></li>
             <li><NavLink to="/catalogo" className={({ isActive }) => isActive ? "active" : ""} onClick={closeMobileMenu}>Catálogo</NavLink></li>
+            <li><NavLink  to="/admin" className={({ isActive }) => isActive ? "active" : ""} onClick={closeMobileMenu}>Administración</NavLink></li>
             <li><NavLink  to="/login" className={({ isActive }) => isActive ? "active" : ""} onClick={closeMobileMenu}>Mi Perfil</NavLink></li>
             <li className="cart-icon-nav">
               <Link to="/carrito" onClick={closeMobileMenu}>

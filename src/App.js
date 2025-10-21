@@ -1,6 +1,9 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+
+import Sidebar from './components/Sidebar';
+import Dashboard from './pages/Dashboard';
 import Navbar from './components/NavBar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -75,6 +78,7 @@ const App = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/pagos" element={<Pagos />} />
           <Route path="/procesamiento" element={<Procesamiento />} />
+          <Route path="/admin" element={<Dashboard/>}/>
         </Routes>
       
       <Footer />

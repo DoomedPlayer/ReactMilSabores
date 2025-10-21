@@ -25,7 +25,7 @@ const Home = () => {
           ))}
         </div>
         <div className="btn-center">
-          <Link to ="/catalogo" className="btn">Ver más Productos</Link>
+          <Link to ="/admin" className="btn">Ver más Productos</Link>
         </div>
       </section>
 
