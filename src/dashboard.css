@@ -29,6 +29,7 @@ body {
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
 .sidebar .company-name {
@@ -92,6 +93,8 @@ body {
   flex-grow: 1;
   padding: 30px;
   background-color: var(--dark-bg);
+  display: flex;
+  min-height: 100vh;
 }
 
 .header {
@@ -109,10 +112,9 @@ body {
 
 /* Metric Cards */
 .metric-cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-bottom: 40px;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
 .metric-card {
@@ -161,9 +163,9 @@ body {
 
 /* Dashboard Cards */
 .dashboard-cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 280px es el ancho mínimo de cada tarjeta */
+  gap: 20px;
 }
 
 .dashboard-card {
@@ -202,4 +204,11 @@ body {
   font-size: 0.95em;
   color: var(--color-texto-principal);
   line-height: 1.5;
+}
+
+.content-wrapper {
+    flex-grow: 1; 
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f4f4f4;
 }
