@@ -8,7 +8,13 @@ module.exports = function(config) {
     files: [
       'src/calculadora.js',       // El código de la función
       'tests/calculadora.spec.js', // El código de la prueba
-      'tests/servicio_api.spec.js'
+      'tests/servicio_api.spec.js',
+      'src/carritoStorage.js',
+      'tests/carrito.spec.js',
+      'src/carritoLogic.js',
+      'tests/carritoStorage.spec.js',
+      'src/filtro.js',
+      'tests/filtro.spec.js'
     ],
 
     // Quitamos los preprocesadores (Webpack) si los añadiste antes

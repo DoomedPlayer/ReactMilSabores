@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Navbar from './components/NavBar';
@@ -62,9 +61,9 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar totalItems={totalItems} />
+      <Navbar totalItems={totalItems} setCart={setCart} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home addToCart={addToCart} />} />
           <Route path="/catalogo" element={<Catalogo 
                 cart={cart}
                 addToCart={addToCart}
@@ -77,7 +76,7 @@ const App = () => {
           <Route path="/carrito" element={<Carrito cartItems={cart} total={cartTotal} />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/pagos" element={<Pagos />} />
-          <Route path="/procesamiento" element={<Procesamiento />} />
+          <Route path="/procesamiento" element={<Procesamiento cartItems={cart} total={cartTotal} setCart={setCart} />} />
           <Route path="/admin" element={<Dashboard/>}/>
         </Routes>
       

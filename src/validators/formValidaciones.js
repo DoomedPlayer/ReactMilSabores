@@ -56,15 +56,3 @@ export const validateRegistration = ({ nombre, email, fechaNacimiento, password,
     
     return errors;
 };
-
-export const validatePayment = ({ nombre, direccion, tarjeta, exp, cvv }) => {
-    const errors = {};
-    
-    if (!nombre) errors.nombre = "El nombre es obligatorio.";
-    if (!direccion) errors.direccion = "La dirección es obligatoria.";
-    if (!tarjeta.match(/^\d{16}$/)) errors.tarjeta = "El número de tarjeta debe tener 16 dígitos.";
-    if (!exp.match(/^(0[1-9]|1[0-2])\/\d{2}$/)) errors.exp = "El formato debe ser MM/AA.";
-    if (!cvv.match(/^\d{3}$/)) errors.cvv = "El CVV debe tener 3 dígitos.";
-
-    return errors;
-};

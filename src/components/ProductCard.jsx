@@ -1,18 +1,25 @@
 import React from 'react';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onAddToCart}) => {
   const handleAddToCart = () => {
-    console.log(`Producto ${product.name} añadido al carrito.`);
+    if (onAddToCart) {
+      onAddToCart(product);
+    }
   };
 
-  return (
-    <div className="card">
-      {}
-      <img src={product.image} alt={product.name} width="300" height="250" />
-      <h3>{product.name}</h3>
-      <p className="price">{product.price}</p>
-      {}
-      <button onClick={handleAddToCart} className="btn">Añadir al Carrito</button>
+return (
+    <div className="product-card"> 
+      <img src={product.image} alt={product.name} className="product-image" />
+      <div className="product-info">
+        <h3 className="product-name">{product.name}</h3>
+        <p className="product-price">${product.price.toLocaleString('es-CL')}</p>
+        <button 
+          className="btn btn-primary"
+          onClick={handleAddToCart}
+        >
+          Añadir al Carrito
+        </button>
+      </div>
     </div>
   );
 };

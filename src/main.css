@@ -51,6 +51,7 @@ h1, h2, .brand {
     font-size: 1.8rem;
     text-decoration: none;
     color: var(--color-fondo-principal);
+    margin-right: 15rem;
 }
 
 .nav-links {
@@ -147,8 +148,7 @@ footer {
 }
 
 .hero-section {
-    background-color: var(--color-acento-rosa);
-    padding: 80px 20px;
+    width: 100%;
     text-align: center;
 }
 
@@ -232,6 +232,11 @@ main {
     margin-bottom: 1.5rem;
 }
 
+.filter-group label {
+    display: block; 
+    margin-bottom: 0.5rem; 
+}
+
 .filter-group h3 {
     border-bottom: 1px solid #ddd;
     padding-bottom: 0.5rem;
@@ -301,6 +306,14 @@ main {
 
 .product-info h3 {
     margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.product-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-texto-principal);
+    margin: 0.5rem 0 1rem 0;
 }
 
 .action-button {

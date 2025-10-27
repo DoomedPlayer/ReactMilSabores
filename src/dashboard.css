@@ -4,7 +4,7 @@
   --accent-color: #FFC107; /* Amarillo */
   --color-texto-principal: #5D4037;
   --color-texto-secundario: #B0BEC5;
-  --light-bg: #ecf0f1; /* Fondo claro para tarjetas */
+  --light-bg: #ffffff; /* Fondo claro para tarjetas */
     --color-acento-rosa: #FFC0CB;
     --color-acento-chocolate: #8B4513;
   --border-radius: 8px;
@@ -22,14 +22,11 @@ body {
 }
 
 /* Sidebar */
-.sidebar {
-  width: 250px;
-  background-color: #34495e; /* Un tono más oscuro que el fondo general */
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+.sidebar-admin {
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
+  height: 100%; 
+  box-sizing: border-box;
 }
 
 .sidebar .company-name {
@@ -71,8 +68,8 @@ body {
 }
 
 .sidebar .logout-button {
-  margin-top: auto; /* Empuja el botón al final */
-  background-color: #e74c3c; /* Rojo para cerrar sesión */
+  margin-top: auto; 
+  background-color: #e74c3c; 
   color: white;
   border: none;
   padding: 12px 20px;
@@ -88,13 +85,18 @@ body {
   background-color: #c0392b;
 }
 
-/* Main Content */
 .main-content {
   flex-grow: 1;
-  padding: 30px;
   background-color: var(--dark-bg);
   display: flex;
   min-height: 100vh;
+}
+
+.main-content > .sidebar {
+    flex-shrink: 0; 
+    width: 250px; 
+    background-color: var(--light-bg, #ffffff); 
+    border-right: 1px solid #e0e0e0; 
 }
 
 .header {
@@ -126,7 +128,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   color: var(--text-color-light);
-  min-height: 120px; /* Asegura una altura mínima */
+  min-height: 120px; 
 }
 
 .metric-card .icon {
@@ -144,7 +146,7 @@ body {
 .metric-card .value {
   font-size: 2em;
   font-weight: bold;
-  color: var(--primary-color); /* Color primario para el valor */
+  color: var(--primary-color); 
 }
 
 .metric-card .description {
@@ -152,7 +154,6 @@ body {
   color: var(--color-texto-principal);
 }
 
-/* Specific colors for metric cards */
 .metric-card.purchases { background-color: #2980b9; color: white; }
 .metric-card.purchases .value { color: white; }
 .metric-card.products { background-color: #27ae60; color: white; }
@@ -160,11 +161,9 @@ body {
 .metric-card.users { background-color: #f39c12; color: white; }
 .metric-card.users .value { color: white; }
 
-
-/* Dashboard Cards */
 .dashboard-cards-container {
   display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 280px es el ancho mínimo de cada tarjeta */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 20px;
 }
 
@@ -176,7 +175,7 @@ body {
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   color: var(--text-color-light);
-  min-height: 180px; /* Asegura una altura mínima */
+  min-height: 180px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -210,5 +209,5 @@ body {
     flex-grow: 1; 
     padding: 20px;
     overflow-y: auto;
-    background-color: #f4f4f4;
+    background-color: #fdf5f5;
 }

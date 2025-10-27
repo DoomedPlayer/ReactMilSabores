@@ -3,7 +3,7 @@ import { FaTachometerAlt, FaShoppingCart, FaBox, FaTags, FaUsers, FaChartLine, F
 
 const Sidebar = () => {
   return (
-    <aside className="sidebar">
+    <aside className="sidebar-admin">
       <div className="company-name">My Admin</div>
       <nav>
         <ul>

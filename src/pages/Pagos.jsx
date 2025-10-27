@@ -1,7 +1,27 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { validatePayment } from '../validators/formValidaciones'
 import '../pagos.css'; 
+
+const validatePayment = (data) => {
+    const newErrors = {};
+    const { nombre, direccion, tarjeta, exp, cvv } = data;
+
+    if (!nombre.trim()) newErrors.nombre = "El nombre es requerido.";
+    if (!direccion.trim()) newErrors.direccion = "La dirección es requerida.";
+    if (!tarjeta.trim()) newErrors.tarjeta = "El número de tarjeta es requerido.";
+    if (!exp.trim()) newErrors.exp = "La expiración es requerida.";
+    if (!cvv.trim()) newErrors.cvv = "El CVV es requerido.";
+
+    if (tarjeta.trim() && (tarjeta.trim().length !== 16 || isNaN(tarjeta.trim()))) {
+        newErrors.tarjeta = "El número de tarjeta debe tener 16 dígitos.";
+    }
+
+    if (cvv.trim() && (cvv.trim().length !== 3 || isNaN(cvv.trim()))) {
+        newErrors.cvv = "El CVV debe tener 3 dígitos numéricos.";
+    }
+
+    return newErrors;
+};
 
 const Pagos = ({ onNavigate }) => {
   const navigate = useNavigate();
@@ -17,10 +37,16 @@ const Pagos = ({ onNavigate }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const validationErrors = validatePayment(formData);
-    setErrors(validationErrors)
-    console.log('Procesando pago con:', formData);
-    alert("✅ Pago realizado con éxito. ¡Gracias por tu compra! 🎂");
-    navigate('/procesamiento'); 
+
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+        console.log('Procesando pago con:', formData);
+        alert("✅ Pago realizado con éxito. ¡Gracias por tu compra! 🎂");
+        navigate('/procesamiento'); 
+    } else {
+        console.log("Errores de validación encontrados:", validationErrors);
+    }
   };
 
   return (

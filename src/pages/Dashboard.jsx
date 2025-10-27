@@ -8,12 +8,10 @@ import "../dashboard.css"
 const Dashboard = () => {
   return (
     <main className="main-content">
-      {/* 1. Sidebar se mantiene primero */}
       <div className='sidebar'>
         <Sidebar />
       </div>
-
-      {/* 2. 💥 Nuevo Contenedor para todo el contenido a la derecha 💥 */}
+      
       <div className="content-wrapper">
         <Header title="Dashboard" />
 

@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
-  const Navbar = ({totalItems = 0 }) => {
+  const Navbar = ({totalItems = 0, setCart }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   
   const closeMobileMenu = () => {
+    if (location.pathname === '/procesamiento'){
+      console.log("Reiniciando carrito.");
+      setCart([]);
+    }
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
