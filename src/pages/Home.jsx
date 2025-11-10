@@ -29,7 +29,7 @@ const Home = ({addToCart}) => {
           ))}
         </div>
         <div className="btn-center">
-          <Link to ="/catalogo" className="btn">Ver más Productos</Link>
+          <Link to ="/gestion" className="btn">Ver más Productos</Link>
         </div>
       </section>
 

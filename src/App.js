@@ -13,6 +13,7 @@ import Pagos from './pages/Pagos';
 import Carrito from './pages/Carrito';
 import Procesamiento from './pages/Procesamiento';
 import Blog from './pages/Blog';
+import GestionProductos from './pages/GestionProducto';
 import "./main.css"
 
 const App = () => {
@@ -78,6 +79,7 @@ const App = () => {
           <Route path="/pagos" element={<Pagos />} />
           <Route path="/procesamiento" element={<Procesamiento cartItems={cart} total={cartTotal} setCart={setCart} />} />
           <Route path="/admin" element={<Dashboard/>}/>
+          <Route path="/gestion" element={<GestionProductos/>}/>
         </Routes>
       
       <Footer />

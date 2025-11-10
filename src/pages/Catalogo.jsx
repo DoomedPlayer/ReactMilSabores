@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import { initialProducts } from '../data/productos';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import ProductCard from '../components/ProductCardCat';
 import Sidebar from '../components/Sidebar';
 import { CartModal, ProductDetailModal } from '../components/Modals';
@@ -10,12 +9,38 @@ import { CartModal, ProductDetailModal } from '../components/Modals';
  */
 function Catalogo({ cart, addToCart, cartTotal, totalItems }) {
 
+    const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     const [isCartModalOpen, setIsCartModalOpen] = useState(false);
     const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [activeTypeFilters, setActiveTypeFilters] = useState([]);
     const [activeCategoryFilter, setActiveCategoryFilter] = useState(null);
     
+    useEffect(() => {
+        fetch('http://localhost:8080/api/producto')
+            .then(response => {
+                if (!response.ok) {
+                    if (response.status === 204) {
+                        return []; 
+                    }
+                    throw new Error('Error en la red al obtener productos');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setProducts(data);
+                setIsLoading(false);
+            })
+            .catch(error => {
+                console.error("Error fetching products:", error);
+                setError(error.message);
+                setIsLoading(false);
+            });
+    }, []);
+
     const handleTypeFilterChange = (e) => {
         const filterValue = e.target.dataset.filter;
         setActiveCategoryFilter(null); 
@@ -40,7 +65,7 @@ function Catalogo({ cart, addToCart, cartTotal, totalItems }) {
     };
 
     const filteredProducts = useMemo(() => {
-        return initialProducts.filter(product => {
+        return products.filter(product => {
             if (activeTypeFilters.length > 0) {
                 return activeTypeFilters.includes(product.type);
             }
@@ -51,7 +76,7 @@ function Catalogo({ cart, addToCart, cartTotal, totalItems }) {
 
             return true;
         });
-    }, [activeTypeFilters, activeCategoryFilter]);
+    }, [activeTypeFilters, activeCategoryFilter, products]);
 
     const showProductDetails = useCallback((product) => {
         setSelectedProduct(product);
@@ -62,11 +87,14 @@ function Catalogo({ cart, addToCart, cartTotal, totalItems }) {
         setIsDetailModalOpen(false);
     };
 
+    if (isLoading) return <div className="catalog-loading">Cargando catálogo...</div>;
+    if (error) return <div className="catalog-error">Error: {error}</div>;
+
     return (
         <>
             <main className="catalog-layout">
                 <Sidebar 
-                    initialProducts={initialProducts}
+                    initialProducts={products}
                     activeTypeFilters={activeTypeFilters}
                     activeCategoryFilter={activeCategoryFilter}
                     handleTypeFilterChange={handleTypeFilterChange}
