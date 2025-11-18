@@ -20,7 +20,7 @@ function Catalogo({ cart, addToCart, cartTotal, totalItems }) {
     const [activeCategoryFilter, setActiveCategoryFilter] = useState(null);
     
     useEffect(() => {
-        fetch('http://localhost:8080/api/producto')
+        fetch('https://api-mil-sabores-5.onrender.com/api/producto')
             .then(response => {
                 if (!response.ok) {
                     if (response.status === 204) {

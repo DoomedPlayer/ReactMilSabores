@@ -16,7 +16,7 @@ const HeroSection = () => {
         <Carousel.Item>
           <img
             className="d-block w-100 carousel-image"
-            src="/img/hero1.png" 
+            src="https://res.cloudinary.com/dlqvbm39g/image/upload/v1763321911/hero1.png" 
             alt="Aniversario 50 años"
           />
           <Carousel.Caption className="custom-carousel-caption">
@@ -29,7 +29,7 @@ const HeroSection = () => {
         <Carousel.Item>
           <img
             className="d-block w-100 carousel-image"
-            src="/img/hero2.png"
+            src="https://res.cloudinary.com/dlqvbm39g/image/upload/v1763321912/hero2.png"
             alt="Variedad de pasteles y postres"
           />
           <Carousel.Caption className="custom-carousel-caption">
@@ -42,7 +42,7 @@ const HeroSection = () => {
         <Carousel.Item>
           <img
             className="d-block w-100 carousel-image"
-            src="/img/hero3.png" 
+            src="https://res.cloudinary.com/dlqvbm39g/image/upload/v1763321911/hero3.png" 
             alt="Descuento Especial"
           />
           <Carousel.Caption className="custom-carousel-caption">

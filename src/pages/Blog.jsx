@@ -7,19 +7,19 @@ const blogPosts = [
     id: 1,
     title: 'La Receta Definitiva de Pastel de Chocolate',
     excerpt: 'Descubre los secretos para hornear el pastel más húmedo y delicioso. ¡Ideal para cualquier ocasión!',
-    image: '/img/chocolate.jpg'
+    image: 'https://res.cloudinary.com/dlqvbm39g/image/upload/chocolate.jpg'
   },
   {
     id: 2,
     title: '5 Trucos para Decorar Cupcakes como un Profesional',
     excerpt: 'Aprende técnicas sencillas para que tus cupcakes luzcan espectaculares. ¡Boquillas, glaseado y más!',
-    image: '/img/cupcakes.jpg.jpg' 
+    image: 'https://res.cloudinary.com/dlqvbm39g/image/upload/cupcakes.jpg.jpg' 
   },
   {
     id: 3,
     title: 'Guía para Principiantes: Hornea tus Propios Macarons',
     excerpt: 'Los macarons no tienen por qué ser intimidantes. Sigue esta guía paso a paso y sorpréndete.',
-    image: '/img/macarons.jpg.webp' 
+    image: 'https://res.cloudinary.com/dlqvbm39g/image/upload/macarons.jpg.webp' 
   }
 ];
 

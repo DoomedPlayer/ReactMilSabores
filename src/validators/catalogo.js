@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const productCard = document.createElement('div');
             productCard.classList.add('product-card');
             productCard.innerHTML = `
-                <img src="img/${product.image}" alt="${product.name}" data-code="${product.code}">
+                <img src="https://api-mil-sabores-5.onrender.com/images/${product.image}" alt="${product.name}" data-code="${product.code}">
                 <div class="product-info">
                     <h3>${product.name}</h3>
                     <p class="price">$${product.price.toLocaleString('es-CL')} CLP</p>
@@ -108,18 +108,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         productDetailInfo.innerHTML = `
-            <img src="img/${product.image}" alt="${product.name}" width="300" height="250">
+            <img src="https://api-mil-sabores-5.onrender.com/images/${product.image}" alt="${product.name}" width="300" height="250">
             <div class="info-section">
                 <h2>${product.name}</h2>
                 <div class="social-icons">
                     <a href="#" class="share-btn facebook" target="_blank" title="Compartir en Facebook">
-                        <img src="img/facebook.png" alt="Compartir en Facebook">
+                        <img src="https://api-mil-sabores-5.onrender.com/images/facebook.png" alt="Compartir en Facebook">
                     </a>
                     <a href="#" class="share-btn twitter" target="_blank" title="Compartir en Twitter">
-                        <img src="img/twitter.png" alt="Compartir en Twitter">
+                        <img src="https://api-mil-sabores-5.onrender.com/images/twitter.png" alt="Compartir en Twitter">
                     </a>
                     <a href="#" class="share-btn whatsapp" target="_blank" title="Compartir por WhatsApp">
-                        <img src="img/whatsapp.png" alt="Compartir por WhatsApp">
+                        <img src="https://api-mil-sabores-5.onrender.com/images/whatsapp.png" alt="Compartir por WhatsApp">
                     </a>
                 </div>
                 <p><strong>Categoría:</strong> ${product.category}</p>

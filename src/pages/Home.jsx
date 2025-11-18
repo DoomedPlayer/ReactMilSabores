@@ -6,9 +6,9 @@ import CommunitySection from '../components/ComunitySection';
 import { Link } from 'react-router-dom';
 
 const featuredProductsData = [
-  { code: 1, name: 'Torta Cuadrada de Chocolate', price: 45000 , image: '/img/chocolate.jpg' },
-  { code: 2, name: 'Tiramisú Clásico', price: 5000, image: '/img/tiramisu.jpg' },
-  { code: 3,name:'Torta Circular de Manjar', price: 45000 , image:'/img/manjar.jpg'}
+  { code: 1, name: 'Torta Cuadrada de Chocolate', price: 45000 , image: 'https://res.cloudinary.com/dlqvbm39g/image/upload/chocolate.jpg' },
+  { code: 2, name: 'Tiramisú Clásico', price: 5000, image: 'https://res.cloudinary.com/dlqvbm39g/image/upload/tiramisu.jpg' },
+  { code: 3,name:'Torta Circular de Manjar', price: 45000 , image:'https://res.cloudinary.com/dlqvbm39g/image/upload/manjar.jpg'}
 ];
 
 const Home = ({addToCart}) => { 

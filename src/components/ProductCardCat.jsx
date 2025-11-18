@@ -3,7 +3,7 @@ import React from 'react';
 const ProductCard = React.memo(({ product, onShowDetails, onAddToCart }) => (
     <div className="product-card">
         <img 
-            src={`img/${product.image}`} 
+            src={product.image} 
             alt={product.name} 
             onClick={() => onShowDetails(product)}
         />

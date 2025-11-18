@@ -9,7 +9,7 @@ function GestionProductos() {
     const [searchCode, setSearchCode] = useState('');
     const [mensaje, setMensaje] = useState('');
 
-    const API_URL = 'http://localhost:8080/api/producto';
+    const API_URL = 'https://api-mil-sabores-5.onrender.com/api/producto';
 
     // 1. LISTAR (GET /) - Carga inicial
     useEffect(() => {

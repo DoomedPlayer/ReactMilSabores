@@ -14,26 +14,72 @@ const Login = ({ onNavigate }) => {
   const [regErrors, setRegErrors] = useState({});
   const navigate = useNavigate();
 
-const handleLoginSubmit = (event) => {
+const handleLoginSubmit = async(event) => {
     event.preventDefault();
     const errors = validateLogin(loginData.email, loginData.password);
     setLoginErrors(errors);
-    if (Object.keys(errors).length === 0) {
-      console.log('Login exitoso:', loginData);
-      navigate('/');
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api-mil-sabores-5.onrender.com/api/auth/login',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginData),
+      });
+      if(!response.ok){
+        setLoginErrors({api: 'Correo o contraseña incorrectos.'});
+        return;
+      }
+      const data = await response.json();
+
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('userRole', data.role);
+
+      if(data.role === 'Admin'){
+        navigate('/admin');
+      } else {
+        navigate('/catalogo');
+      } 
+    } catch (error){
+      console.error('Error en el login: ', error);
+      setLoginErrors({api: 'No se pudo conectar al servidor. Intentalo mas tarde.'});
     }
   };
 
-  const handleRegisterSubmit = (event) => {
+  const handleRegisterSubmit = async (event) => {
     event.preventDefault();
     const errors = validateRegistration(regData);
     setRegErrors(errors);
-    if (Object.keys(errors).length === 0) {
-        console.log('Registro exitoso:', regData);
-        alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
-        setIsLoginView(true);
+    if (Object.keys(errors).length > 0) {
+        return;
+    }
+    try {
+        const response = await fetch('https://api-mil-sabores-5.onrender.com/api/auth/register', {
+          method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(regData), 
+        });
+        if (!response.ok) {
+          setRegErrors({ api: 'El correo electrónico ya está en uso.' });
+            return;
+        }
+
+        const data = await response.json();
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('userRole', data.role);
+        navigate('/catalogo');
+        } catch (error) {
+        console.error('Error en el registro:', error);
+        setRegErrors({ api: 'No se pudo conectar al servidor.' });
     }
   };
+
 
   const handleLoginChange = (e) => setLoginData({...loginData, [e.target.id]: e.target.value});
   const handleRegChange = (e) => setRegData({...regData, [e.target.id]: e.target.value});
@@ -61,6 +107,7 @@ const handleLoginSubmit = (event) => {
               <input type="password" id="password" value={loginData.password} onChange={handleLoginChange} />
               {loginErrors.password && <span className="error-message">{loginErrors.password}</span>}
             </div>
+            {loginErrors.api && <span className='error-message'>{loginErrors.api}</span>}
             <button type="submit" className="boton-submit">Acceder</button>
           </form>
           <div className="switch-form">

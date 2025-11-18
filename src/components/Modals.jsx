@@ -67,19 +67,19 @@ export const ProductDetailModal = ({ isDetailModalOpen, selectedProduct, closeDe
             <div className="product-detail-content">
                 <span className="close-button-detail" onClick={closeDetailModal}>&times;</span>
                 <div id="product-detail-info">
-                    <img src={`img/${selectedProduct.image}`} alt={selectedProduct.name} width="300" height="250" />
+                    <img src={`https://api-mil-sabores-5.onrender.com/images/${selectedProduct.image}`} alt={selectedProduct.name} width="300" height="250" />
                     <div className="info-section">
                         <h2>{selectedProduct.name}</h2>
                         <div className="social-icons">
                             <a href={facebookLink} target="_blank" rel="noopener noreferrer" title="Compartir en Facebook">
                                 {/* Asumiendo que las imágenes sociales están disponibles */}
-                                <img src="img/facebook.png" alt="Compartir en Facebook" />
+                                <img src="https://api-mil-sabores-5.onrender.com/images/facebook.png" alt="Compartir en Facebook" />
                             </a>
                             <a href={twitterLink} target="_blank" rel="noopener noreferrer" title="Compartir en Twitter">
-                                <img src="img/twitter.png" alt="Compartir en Twitter" />
+                                <img src="https://api-mil-sabores-5.onrender.com/images/twitter.png" alt="Compartir en Twitter" />
                             </a>
                             <a href={whatsappLink} target="_blank" rel="noopener noreferrer" title="Compartir por WhatsApp">
-                                <img src="img/whatsapp.png" alt="Compartir por WhatsApp" />
+                                <img src="https://api-mil-sabores-5.onrender.com/images/whatsapp.png" alt="Compartir por WhatsApp" />
                             </a>
                         </div>
                         <p><strong>Categoría:</strong> {selectedProduct.category}</p>
