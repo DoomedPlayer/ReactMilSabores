@@ -14,6 +14,7 @@ import Carrito from './pages/Carrito';
 import Procesamiento from './pages/Procesamiento';
 import Blog from './pages/Blog';
 import GestionProductos from './pages/GestionProducto';
+import GestionUsuarios from './pages/GestionUsuarios';
 import "./main.css"
 
 const App = () => {
@@ -80,6 +81,7 @@ const App = () => {
           <Route path="/procesamiento" element={<Procesamiento cartItems={cart} total={cartTotal} setCart={setCart} />} />
           <Route path="/admin" element={<Dashboard/>}/>
           <Route path="/gestion" element={<GestionProductos/>}/>
+          <Route path="/usuarios" element={<GestionUsuarios/>}/>
         </Routes>
       
       <Footer />

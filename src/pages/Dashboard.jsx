@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/SidebarAdmin'
 import Header from '../components/HeadAdmin';
 import MetricCard from '../components/MetricCardAdmin';
@@ -6,6 +7,7 @@ import DashboardCard from '../components/DashboardCardAdmin';
 import { FaShoppingCart, FaBox, FaUsers, FaTachometerAlt, FaClipboardList, FaTags, FaChartLine, FaUserCircle, FaStore } from 'react-icons/fa';
 import "../dashboard.css"
 const Dashboard = () => {
+  const navigate = useNavigate();
   return (
     <main className="main-content">
       <div className='sidebar'>
@@ -50,21 +52,31 @@ const Dashboard = () => {
             title="Órdenes"
             description="Gestión y seguimiento de todas las órdenes de compra realizadas."
           />
-          <DashboardCard
-            icon={<FaBox />}
-            title="Productos"
-            description="Administrar inventario y detalles de los productos disponibles."
-          />
+          <div 
+            onClick={() => navigate('/gestion')} 
+            style={{ cursor: 'pointer' }}
+          >
+            <DashboardCard
+              icon={<FaBox />}
+              title="Productos"
+              description="Administrar inventario y detalles de los productos disponibles."
+            />
+          </div>
           <DashboardCard
             icon={<FaTags />}
             title="Categorías"
             description="Organizar productos en categorías para facilitar su navegación."
           />
+          <div 
+            onClick={() => navigate('/usuarios')} 
+            style={{ cursor: 'pointer' }}
+          >
           <DashboardCard
             icon={<FaUsers />}
             title="Usuarios"
             description="Gestión de cuentas de usuario y sus roles dentro del sistema."
           />
+          </div>
           <DashboardCard
             icon={<FaChartLine />}
             title="Reportes"
