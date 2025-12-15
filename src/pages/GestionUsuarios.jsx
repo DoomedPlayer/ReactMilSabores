@@ -19,6 +19,9 @@ function GestionUsuarios() {
 
     const getAuthHeaders = () => {
         const token = localStorage.getItem('token');
+        if (!token) {
+            throw new Error('Token de autenticación faltante. Por favor, inicie sesión.');
+        }
         return {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
@@ -31,6 +34,7 @@ function GestionUsuarios() {
 
     const cargarUsuarios = async () => {
         try {
+            const headers = getAuthHeaders();
             const response = await fetch(API_URL, {
                 method: 'GET',
                 headers: getAuthHeaders()
@@ -42,7 +46,12 @@ function GestionUsuarios() {
                 console.error("Error cargando usuarios:", response.status);
             }
         } catch (error) {
-            console.error("Error de conexión:", error);
+            if (error.message.includes('Token')) {
+                setMensaje(error.message); 
+            } else {
+                console.error("Error de conexión:", error);
+                setMensaje('Error de conexión o permisos.');
+            }
         }
     };
 
